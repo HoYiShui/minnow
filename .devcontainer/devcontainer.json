@@ -1,0 +1,33 @@
+{
+    "name": "CS144 Minnow with GitHub Codespaces",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+      "ghcr.io/devcontainers/features/github-cli:1": {},
+      "ghcr.io/devcontainers/features/clangd:1": {},
+      "ghcr.io/devcontainers/features/cmake:1": {}
+    },
+    "updateContentCommand": "cmake -S . -B ./build",
+    "postCreateCommand": "cmake --build ./build",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-vscode.cpptools",
+          "llvm-vs-code-extensions.vscode-clangd",
+          "ms-vscode.cmake-tools"
+        ],
+        "settings": {
+          "cmake.configureOnOpen": true,
+          "editor.formatOnSave": true
+        }
+      }
+    },
+    "mounts": [
+      "source=/home/.ssh,target=/root/.ssh,type=bind,readonly"
+    ],
+    "forwardPorts": [],
+    "hostRequirements": {
+      "cpus": 4,
+      "memory": "8gb"
+    }
+  }
+  
